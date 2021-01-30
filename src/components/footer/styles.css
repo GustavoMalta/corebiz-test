@@ -5,9 +5,9 @@
   flex-direction: row;
   justify-content: center;
   width: 100%;
-  position: absolute;
+  position: relative;
   bottom: 0;
-  height: 213px;
+  min-height: 213px;
 }
 
 .footer-text {
@@ -32,18 +32,19 @@
   font-size: 12px;
   font-weight: 600;
   background-color: #fff !important;
-  padding: 15px 20px !important;
-  width: 250px !important;
+  padding: 15px !important;
+  width: 195px !important;
+  height: 38px !important;
   margin-top: 20px !important;
   justify-content: left !important;
 }
 .footer-button span {
   text-align: justify;
-  font-size: 15px !important;
+  font-size: 12px !important;
   line-height: 15px;
 }
 .footer-button-icon {
-  margin-right: 15%;
+  margin-right: 10%;
 }
 .footer-buttons {
   min-width: 50%;
@@ -61,4 +62,16 @@
   font-size: 13px;
   line-height: 12px;
   margin-top: 0;
+  line-height: 20px;
+}
+@media (max-width: 450px) {
+  .footer-content {
+    display: block;
+  }
+  .footer-logos {
+    margin-top: 25px;
+  }
+  .footer hr {
+    margin: 10px 0;
+  }
 }

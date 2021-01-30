@@ -1,0 +1,78 @@
+.banner-background {
+  width: 50%;
+  float: left;
+  position: relative;
+  z-index: 1;
+  /* display: none; */
+}
+img.banner-image {
+  width: 55%;
+  /* object-fit: none; */
+  position: absolute;
+  left: 45%;
+}
+.Carousel-indicators-2 {
+  position: absolute;
+  bottom: 0;
+  z-index: 9;
+}
+svg.Carousel-active-4 {
+  color: #f8475f;
+}
+.Indicators svg circle {
+  width: 900px;
+}
+.carousel {
+}
+.title {
+  display: flex;
+  margin: 0 10px;
+  width: 80%;
+}
+.title h3 {
+  font-size: 20px;
+  font-weight: 900;
+}
+.body-content {
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
+}
+.body-top {
+  margin-top: 25px;
+}
+.body-content hr {
+  height: 3px;
+  width: 65px;
+  color: transparent;
+  background-color: #c0c0c0;
+  border-radius: 5px;
+  margin: 5px 0;
+}
+.top-sales {
+  display: flex;
+  flex-flow: column;
+  align-self: center;
+  align-items: center;
+  width: 80%;
+  margin: 50px 0;
+}
+.top-sales-carousel {
+  width: 100%;
+}
+.product-image {
+  width: 200px;
+}
+
+@media (max-width: 450px) {
+  img.banner-image {
+    width: 100% !important;
+    /* object-fit: cover !important; */
+    position: unset;
+    left: 45% !important;
+    max-height: 200px !important;
+  }
+  .banner-background {
+    display: none;
+  }
+}
