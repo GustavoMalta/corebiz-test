@@ -64,6 +64,15 @@ svg.Carousel-active-4 {
   width: 200px;
 }
 
+button.card-content-button {
+  background-color: #000;
+  color: #fff;
+}
+button.card-content-button:hover {
+  background-color: #333;
+  color: #fff;
+}
+
 @media (max-width: 450px) {
   img.banner-image {
     width: 100% !important;
