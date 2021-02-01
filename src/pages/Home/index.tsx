@@ -5,16 +5,16 @@ import bannerBackground from '../../assets/banner-background.svg'
 import bannerimage from '../../images/banner-image1.png'
 import { Rating }from '@material-ui/lab';
 
-import Header from '../../components/header'
+import Header, { Cart } from '../../components/header'
 import Footer from '../../components/footer';
+import Newsletter from '../../components/newsletter';
 import Carousel from 'react-material-ui-carousel'
 import MultCarousel from 'react-multi-carousel'
 import 'react-multi-carousel/lib/styles.css';
 import { Button } from '@material-ui/core';
 import {FiStar} from 'react-icons/fi'
-import { IconType } from 'react-icons/lib';
 
-export interface Products {
+export interface Product {
   productId: number;
   productName: string;
   stars: number;
@@ -31,11 +31,14 @@ export interface Installment {
 
 function App() {
   
-  const [products, setProducts] = useState<Products[]>(new Array<Products>())
+  const [products, setProducts] = useState<Product[]>(new Array<Product>())
+  const [add, setAdd] = useState<boolean>(false)
 
   useEffect(()=>{
     api.get(`/products`).then(res=>{
       setProducts(res.data);       
+    }).catch(err=>{
+      setProducts(new Array<Product>())
     })
   },[])
 
@@ -43,16 +46,20 @@ function App() {
     value = String(value)
     return  value.slice(0,value.length-2)+','+value.substring(value.length - 2);
   }
-  function rate (value:string|number){
-    value = Number(value)
-    let rating:any = <></>
-    for(let x=0; x<5;x++){
-      rating = <><FiStar/></> //<FiStar fill='#000'/>
-      }
-      console.log(rating);
-      
-    return rating
+  function handeleCart(data:Product){
+    let storage = localStorage.getItem('@Corebiz/cart');
+
+    let dataCart:Cart[] = []
+    if (storage){
+      dataCart = JSON.parse(storage.toString())
+    }
+      dataCart.push({quantity:1, productId:data.productId, name:data.productName})
+      localStorage.setItem('@Corebiz/cart', JSON.stringify(dataCart));
+    
+    
+    if(add){setAdd(false)}else { setAdd(true)}
   }
+
   const responsive = {
     superLargeDesktop: {
       breakpoint: { max: 4000, min: 3000 },
@@ -73,8 +80,8 @@ function App() {
   };
 
   return (<>
-    <Header/>
-    <body className="body-content">
+    <Header handleCartTotal={add}/>
+    <div className="body-content">
       <div className="body-top">
         <Carousel animation='slide' swipe={true} stopAutoPlayOnHover={true} className='carousel'>
           <div>
@@ -99,7 +106,7 @@ function App() {
             <MultCarousel responsive={responsive} infinite={true} autoPlay={true} className='mult-carousel'>
               {products.map(product => {
                 return(
-                <div className="card">
+                <div className="card" key={product.productId}>
                   <img className='product-image' src={product.imageUrl} alt="COREBIZ"/>
                   <div className="card-content">
                     <p className="card-content-title">{product.productName}</p>
@@ -114,7 +121,7 @@ function App() {
                     {product.listPrice?
                       <h5 className="card-content-value">De R${monetize(product.listPrice)}</h5>
                   :
-                  <h5><br/></h5>
+                  <h5 className="card-content-value"  ><br/></h5>
                   }
                     <h3 className="card-content-value">Por R${monetize(product.price)}</h3>
                   
@@ -124,13 +131,14 @@ function App() {
                           de R${monetize(product.installments[0].value)}
                         </p>
                       : 
-                      <p><br/></p>
+                      <p className="card-content-instalments"><br/></p>
                       }
-                        
-                    
-
-                    
-                    <Button className="card-content-button">Comprar</Button>
+                    <Button 
+                      className="card-content-button" 
+                      onClick={()=>{handeleCart(product)}}
+                    >
+                      Comprar
+                    </Button>
                   </div>
                 </div> 
                 )
@@ -140,7 +148,8 @@ function App() {
             </MultCarousel>    
             </div>
           </div>
-        </body>
+        </div>
+        <Newsletter/>
     <Footer/>
   </>
      

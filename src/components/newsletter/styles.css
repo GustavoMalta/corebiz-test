@@ -1,0 +1,95 @@
+.newsletter {
+  background-color: #f2f2f2;
+  color: #000;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  width: 100%;
+  position: relative;
+  bottom: 0;
+  min-height: 150px;
+}
+.newsletter-inputs {
+  display: flex;
+  justify-content: center;
+}
+
+.newsletter-inputs input {
+  border: 1px solid;
+  background-color: #fff;
+  height: 25px;
+  border-radius: 10px;
+  margin: 0 10px;
+  border: none;
+  min-width: 165px;
+}
+.newsletter-text {
+  text-align: left;
+  display: grid;
+}
+.newsletter-content {
+  display: flex;
+  width: 80%;
+  justify-content: center;
+  flex-direction: column;
+}
+.footer hr {
+  height: 3px;
+  width: 45px;
+  float: inline-start;
+  color: #fff;
+  background-color: #fff;
+  border-radius: 10px;
+  margin: 0;
+}
+.newsletter-button {
+  font-family: 'lato';
+  font-size: 14px !important;
+  font-weight: 600 !important;
+  background-color: #000 !important;
+  color: #fff !important;
+  min-width: 140px !important;
+  height: 25 !important;
+  justify-content: center !important;
+}
+.newsletter-button:hover {
+  background-color: #333 !important;
+}
+.footer-button span {
+  text-align: justify;
+  font-size: 12px !important;
+  line-height: 15px;
+}
+.footer-button-icon {
+  margin-right: 10%;
+}
+.footer-buttons {
+  min-width: 50%;
+  align-self: center;
+  display: grid;
+  justify-content: center;
+}
+.footer-text h3 {
+  font-weight: 700;
+  font-size: 20px;
+  margin-bottom: 0;
+}
+.footer-text p {
+  font-weight: 400;
+  font-size: 13px;
+  line-height: 12px;
+  margin-top: 0;
+  line-height: 20px;
+}
+.newsletter-input input {
+  padding-left: 10px;
+}
+@media (max-width: 450px) {
+  .newsletter-inputs {
+    flex-direction: column;
+    margin-bottom: 15px;
+  }
+  .newsletter-inputs input {
+    margin: 10px 0;
+  }
+}
