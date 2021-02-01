@@ -24,7 +24,7 @@
   min-width: 165px;
 }
 .newsletter-text {
-  text-align: left;
+  text-align: center;
   display: grid;
 }
 .newsletter-content {
