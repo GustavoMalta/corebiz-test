@@ -20,7 +20,9 @@ or
 
     npm start
 
+That's it,
+By the way the project was deployed for tests in
 
-(☞ ﾟヮﾟ)☞ That's it,
+(☞ ﾟヮﾟ)☞ https://corebiz-test.netlify.app/
 
 ✌Enjoy!!
