@@ -20,9 +20,7 @@ or
 
     npm start
 
-Thats it,
-Bytheway the project was deployed for tests in
 
-(☞ ﾟヮﾟ)☞ https://corebiz-store.herokuapp.com/
+(☞ ﾟヮﾟ)☞ That's it,
 
 ✌Enjoy!!
